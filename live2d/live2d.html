@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Live2D 看板娘 v1.2 / Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/waifu.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        #range {
+            align-items: center;
+            position: relative;
+            width: 1000px;
+            height: 650px;
+            margin: 1px;
+            background-color: rgb(133, 246, 250);
+        }
+
+        .icon {
+            position: absolute;
+            cursor: move;
+            background-color: #ff9204;
+        }
+    </style>
+</head>
+
+<body>
+    <!--<h2><a href="https://www.fghrsh.net/post/123.html" style="color: #38A3DB">Live2D 看板娘 v1.2</a> / Demo</h2>-->
+    <div>
+        <div class="box"></div>
+        <div class="waifu" id="range">
+            <div class="icon">
+                <div class="waifu-tips" ></div>
+                <canvas style="z-index: 999;" id="live2d" width="280" height="250" class="live2d"></canvas>
+                <div class="waifu-tool">
+                    <span class="fui-homen"></span>
+                    <span class="fui-chat"></span>
+                    <span class="fui-eye"></span>
+                    <span class="fui-user"></span>
+                    <span class="fui-photo"></span>
+                    <span class="fui-info-circle"></span>
+                    <span class="fui-cross"></span>
+                </div>
+            </div>
+            </div>
+
+    </div>
+
+
+    <script src="assets/waifu-tips.js"></script>
+    <script src="assets/live2d.js"></script>
+    <script type="text/javascript">initModel("assets/")</script>
+
+    <script>
+        const main = document.getElementById('range');
+        const icon = document.querySelector('.icon');
+        let move = false;
+        let deltaLeft = 0, deltaTop = 0;
+
+        icon.addEventListener('mousedown', function (e) {
+            /** @des deltaLeft 即移动过程中不变的值 */
+            deltaLeft = e.clientX - e.target.offsetLeft;
+            deltaTop = e.clientY - e.target.offsetTop;
+            move = true;
+        })
+
+        main.addEventListener('mousemove', function (e) {
+            if (move) {
+                const cx = e.clientX;
+                const cy = e.clientY;
+                /** 相减即可得到相对于父元素移动的位置 */
+                let dx = cx - deltaLeft
+                let dy = cy - deltaTop
+
+                /** 防止超出父元素范围 */
+                if (dx < 1) dx = 1
+                if (dy < 1) dy = 1
+                if (dx > window) dx = window
+                if (dy > window) dy = window
+                icon.setAttribute('style', `left:${dx}px;top:${dy}px`)
+            }
+        })
+
+        main.addEventListener('mouseup', function (e) {
+            move = false;
+            console.log('mouseup');
+        })
+    </script>
+</body>
+
+</html>
