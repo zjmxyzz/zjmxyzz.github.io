@@ -2259,7 +2259,7 @@ blockquote p {
 	display: inline-block;
 }
 /* ------share------------------------------------------------------------ */
-.share-wrapper {
+/*.share-wrapper {
 	position:fixed;
 	top:96px;
 	right:56px;
@@ -2318,7 +2318,7 @@ blockquote p {
 	bottom: -50px;
 	opacity: 0;
 	visibility: hidden;
-}
+} */
 /* ------responsive------------------------------------------------------------ */
 @media only screen and (max-width: 1264px) {
 .hs_init-container {
