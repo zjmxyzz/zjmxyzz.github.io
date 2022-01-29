@@ -399,7 +399,7 @@ function initEndor() {
         });
     });
     // Share   ------------------
-    $(".share-container").share({
+ /*   $(".share-container").share({
         networks: ['facebook', 'pinterest', 'twitter', 'tumblr']
     });
     var shrcn = $(".share-container"),
@@ -434,7 +434,7 @@ function initEndor() {
     ssbtn.on("click", function () {
         if ($(".share-container").hasClass("isShare")) showShare();
         else hideShare();
-    });
+    }); */
     //   cursor ------------------
     $("a , .btn ,   textarea,   input  , .share-btn   , .closedet_style  , .nav-button , .swiper-pagination-bullet , .to-top-btn  , .gc-slider-cont , .fwcb , .pr-det_btn , .cl-det-btn , .share-icon").on({
         mouseenter: function () {
