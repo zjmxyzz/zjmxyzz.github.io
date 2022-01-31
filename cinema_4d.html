@@ -12,9 +12,27 @@
         <link type="text/css" rel="stylesheet" href="static/css/plugins.css">
         <link type="text/css" rel="stylesheet" href="static/css/style.css">
 
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+
         <link rel="shortcut icon" href="favicon.ico">
+
+        <script id="snow_screen" src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script>
+        <script id="snow_screen" src="http://www.lmlblog.com/blog/12/js/Snow.js"></script>
+        <style id="snow_screen" type="text/css">
+            .snow-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 9999999;
+            }
+        </style>
     </head>
     <body>
+
+        <div id="snow_screen" class="snow-container"></div>
         <!--main-loader  -->
         <div class="main-loader">
             <div class="ml-wrap">
