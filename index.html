@@ -3,6 +3,13 @@
 
 <head>
 <script>
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+// 通过下面这个API隐藏底部导航栏
+
+WeixinJSBridge.call('hideToolbar');
+
+});
+
       // var vConsole = new VConsole();
       document.addEventListener(
         "WeixinJSBridgeReady",
